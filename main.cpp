@@ -1,9 +1,11 @@
 #include <SFML/Graphics.hpp>
 #include "interface/components/button/button.h"
+#include "interface/menus/main/main_menu.h"
 
 int main(){
-    sf::RenderWindow window(sf::VideoMode(500, 500), "Cells Live");
-    Button button(100, 100, sf::Vector2f (140, 100), "Text");
+    sf::Vector2i windowSize(500, 500);
+    sf::RenderWindow window(sf::VideoMode(windowSize.x, windowSize.y), "Cells Live");
+    MainMenu mainMenu = *new MainMenu(windowSize);
     while (window.isOpen()){
         sf::Event event;
         while (window.pollEvent(event)){
@@ -11,9 +13,10 @@ int main(){
                 window.close();
         }
         window.clear();
-        button.render(window);
-        button.update(sf::Mouse::getPosition());
+        mainMenu.render(window);
+        mainMenu.update();
         window.display();
+
     }
     return 0;
 }

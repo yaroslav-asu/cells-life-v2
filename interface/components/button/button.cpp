@@ -1,5 +1,9 @@
 #include "button.h"
 
+sf::Color idleColor(120, 120, 120);
+sf::Color hoverColor(150, 150, 150);
+sf::Color pressedColor(180, 180, 180);
+
 Button::Button(int x, int y, sf::Vector2f size, std::string text) {
     this->width = size.x;
     this->height = size.y;
@@ -11,7 +15,7 @@ Button::Button(int x, int y, sf::Vector2f size, std::string text) {
     this->font.loadFromFile("../fonts/roboto.ttf");
     this->text.setFillColor(sf::Color::White);
 
-    this->text = sf::Text("text", font, 25);
+    this->text = sf::Text(text, font, 25);
     sf::Rect textRect = this->text.getGlobalBounds();
 
     this->text.setPosition(x + width / 2. - textRect.width / 2. - textRect.left,
@@ -23,9 +27,9 @@ Button::Button(int x, int y, sf::Vector2f size, std::string text) {
 }
 
 
-void Button::render(sf::RenderWindow &window) {
-    window.draw(shape);
-    window.draw(text);
+void Button::render(sf::RenderTarget &target) const {
+    target.draw(shape);
+    target.draw(text);
 }
 
 void Button::update(sf::Vector2i mousePos) {
@@ -38,16 +42,16 @@ void Button::update(sf::Vector2i mousePos) {
     }
     switch (this->state) {
         case BTN_IDLE:
-            this->shape.setFillColor(sf::Color::Red);
+            this->shape.setFillColor(idleColor);
             break;
         case BTN_HOVER:
-            this->shape.setFillColor(sf::Color::Blue);
+            this->shape.setFillColor(hoverColor);
             break;
         case BTN_PRESSED:
-            this->shape.setFillColor(sf::Color::Yellow);
+            this->shape.setFillColor(pressedColor);
             break;
         default:
-            this->shape.setFillColor(sf::Color::Red);
+            this->shape.setFillColor(idleColor);
             break;
     }
 }

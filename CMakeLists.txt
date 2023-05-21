@@ -9,6 +9,6 @@ find_package(SFML
         REQUIRED
         )
 
-add_executable(cells_live main.cpp interface/components/button/button.cpp)
+add_executable(cells_live main.cpp interface/components/button/button.cpp interface/menus/main/main_menu.cpp)
 
 target_link_libraries(cells_live sfml-graphics sfml-audio)

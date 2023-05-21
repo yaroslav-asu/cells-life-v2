@@ -14,12 +14,12 @@ public:
     sf::RectangleShape shape;
     sf::Font font;
     sf::Text text;
-    float width = 250, height = 100;
+    float width, height;
     unsigned short state;
 
-    Button(int x, int y, sf::Vector2f size, std::string text);
+    Button(int, int, sf::Vector2f, std::string);
 
-    void render(sf::RenderWindow &window);
+    void render(sf::RenderTarget &) const;
 
     void update(sf::Vector2i);
 
