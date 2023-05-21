@@ -1,16 +1,17 @@
+#include <SFML/Graphics/RenderWindow.hpp>
 #include "main_menu.h"
 
-MainMenu::MainMenu(sf::Vector2i size) {
+MainMenu::MainMenu(sf::RenderWindow &window) {
     this->background.setFillColor(sf::Color::White);
-    this->background.setSize(sf::Vector2f(size));
+    this->background.setSize(sf::Vector2f(window.getSize()));
 
     sf::Vector2f buttonSize(120, 60);
-    std::vector<std::string> buttonsTitle{"Start", "Settings", "Exit"};
+    std::vector <std::string> buttonsTitle{"Start", "Settings", "Exit"};
     int buttonsGap = 10;
 
     sf::Vector2i startButtonsPos(
-            size.x / 2. - buttonSize.x / 2.,
-            size.y / 2. - (buttonsTitle.size() * buttonSize.y + (buttonsTitle.size() - 1) * buttonsGap) / 2.
+            window.getSize().x / 2. - buttonSize.x / 2.,
+            window.getSize().y / 2. - (buttonsTitle.size() * buttonSize.y + (buttonsTitle.size() - 1) * buttonsGap) / 2.
     );
 
     for (int i = 0; i < buttonsTitle.size(); i++) {
@@ -37,8 +38,4 @@ void MainMenu::update() {
     for (Button *button: buttons) {
         button->update(mousePos);
     }
-}
-
-void MainMenu::exit(sf::RenderWindow &window) {
-    window.close();
 }

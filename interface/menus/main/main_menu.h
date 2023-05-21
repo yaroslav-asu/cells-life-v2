@@ -2,21 +2,23 @@
 #define CELLS_LIVE_MAIN_MENU_H
 
 
-#include <SFML/Graphics/RectangleShape.hpp>
+#include <SFML/Graphics.hpp>
 #include "../../components/button/button.h"
+#include "../../game_screen/game_screen.h"
 
-class MainMenu {
+class MainMenu : public GameScreen {
 public:
     sf::RectangleShape background;
     std::vector<Button *> buttons;
 
-    MainMenu(sf::Vector2i);
+    explicit MainMenu(sf::RenderWindow &);
 
     void render(sf::RenderTarget &);
 
-    void update();
-
     static void exit(sf::RenderWindow &);
+
+    void update();
 };
+
 
 #endif //CELLS_LIVE_MAIN_MENU_H
