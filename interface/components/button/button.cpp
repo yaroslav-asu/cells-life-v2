@@ -26,18 +26,27 @@ Button::Button(int x, int y, sf::Vector2f size, std::string text) {
     this->state = BTN_IDLE;
 }
 
+Button::Button(int x, int y, sf::Vector2f size, std::string text, Game *game, void(*callback)(Game *)) : Button(x, y,
+                                                                                                                size,
+                                                                                                                text) {
+    this->callback = callback;
+    this->game = game;
+}
+
 
 void Button::render(sf::RenderTarget &target) const {
     target.draw(shape);
     target.draw(text);
 }
 
-void Button::update(sf::Vector2i mousePos) {
+void Button::update(sf::Vector2i mousePos, sf::Event event) {
     this->state = BTN_IDLE;
     if (this->shape.getGlobalBounds().contains(sf::Vector2f(mousePos))) {
         this->state = BTN_HOVER;
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
             this->state = BTN_PRESSED;
+        } else if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
+            this->state = BTN_RELEASED;
         }
     }
     switch (this->state) {
@@ -50,12 +59,22 @@ void Button::update(sf::Vector2i mousePos) {
         case BTN_PRESSED:
             this->shape.setFillColor(pressedColor);
             break;
+        case BTN_RELEASED:
+            this->shape.setFillColor(idleColor);
+            this->click();
+            break;
         default:
             this->shape.setFillColor(idleColor);
             break;
     }
 }
 
-const bool Button::isPressed() {
+bool Button::isPressed() const {
     return this->state == BTN_PRESSED;
+}
+
+void Button::click() {
+    if (callback) {
+        this->callback(game);
+    }
 }

@@ -5,7 +5,8 @@
 class GameScreen {
 public:
     virtual void render(sf::RenderTarget &);
-    virtual void update();
+
+    virtual void update(sf::Event);
 };
 
 

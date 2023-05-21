@@ -5,15 +5,15 @@
 Game::Game(sf::Vector2i size) {
     sf::Vector2i windowSize(size.x, size.y);
     this->window = new sf::RenderWindow(sf::VideoMode(windowSize.x, windowSize.y), "Cells Live");
-    screens.push_back(new MainMenu(*window));
+    screens.push_back(new MainMenu(this));
 }
 
 void Game::render() {
-    screens[this->currentScreenType]->render(*window);
+    this->currentScreen()->render(*window);
 }
 
-void Game::update() {
-    screens[this->currentScreenType]->update();
+void Game::update(sf::Event event) {
+    this->currentScreen()->update(event);
 }
 
 void Game::start() {
@@ -27,7 +27,7 @@ void Game::start() {
         window->clear();
 
         this->render();
-        this->update();
+        this->update(event);
 
         window->display();
     }
@@ -36,4 +36,13 @@ void Game::start() {
 void Game::end() {
     this->running = false;
 }
+
+void Game::openSettings() {
+    this->currentScreenId = SETTINGS_SCREEN;
+}
+
+GameScreen *Game::currentScreen() {
+    return screens[this->currentScreenId];
+}
+
 

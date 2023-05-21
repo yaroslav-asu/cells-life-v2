@@ -5,19 +5,18 @@
 #include <SFML/Graphics.hpp>
 #include "../../components/button/button.h"
 #include "../../game_screen/game_screen.h"
+#include "../../../game/game.h"
 
 class MainMenu : public GameScreen {
 public:
     sf::RectangleShape background;
     std::vector<Button *> buttons;
 
-    explicit MainMenu(sf::RenderWindow &);
+    explicit MainMenu(Game *);
 
     void render(sf::RenderTarget &);
 
-    static void exit(sf::RenderWindow &);
-
-    void update();
+    void update(sf::Event event);
 };
 
 

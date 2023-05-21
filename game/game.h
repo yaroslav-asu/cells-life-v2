@@ -6,13 +6,13 @@
 #include "../interface/game_screen/game_screen.h"
 
 enum {
-    MAIN_SETTINGS_SCREEN, GAME_SCREEN
+    MAIN_MENU_SCREEN, SETTINGS_SCREEN, GAME_SCREEN
 };
 
 class Game {
 public:
     sf::RenderWindow *window;
-    unsigned short currentScreenType = MAIN_SETTINGS_SCREEN;
+    unsigned short currentScreenId = MAIN_MENU_SCREEN;
     bool running;
 
     std::vector<GameScreen *> screens;
@@ -25,9 +25,15 @@ public:
 
     void render();
 
-    void renderMainMenu();
+    void openSettings();
 
-    void update();
+
+
+private:
+    GameScreen *currentScreen();
+
+    void update(sf::Event event);
+
 };
 
 
