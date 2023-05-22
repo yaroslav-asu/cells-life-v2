@@ -19,21 +19,21 @@ public:
 
     Game(sf::Vector2i size);
 
-    void start();
-
-    void end();
+    void run();
 
     void render();
 
-    void openSettings();
+    static void stop(Game *game);
 
+    static void openSettings(Game *);
+
+    static void startGame(Game *game);
 
 
 private:
     GameScreen *currentScreen();
 
     void update(sf::Event event);
-
 };
 
 

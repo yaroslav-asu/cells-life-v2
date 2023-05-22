@@ -12,12 +12,9 @@ enum {
 
 class Button {
 private:
-
-
     void (*callback)(Game *);
 
     Game *game;
-
 public:
     sf::RectangleShape shape;
     sf::Font font;

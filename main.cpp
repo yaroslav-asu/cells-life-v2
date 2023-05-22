@@ -4,6 +4,6 @@
 
 int main() {
     Game game(sf::Vector2i(500, 500));
-    game.start();
+    game.run();
     return 0;
 }

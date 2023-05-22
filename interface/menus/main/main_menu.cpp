@@ -3,14 +3,6 @@
 #include <functional>
 #include "main_menu.h"
 
-void exit(Game *game) {
-    game->window->close();
-}
-
-void openSettings(Game *game) {
-    game->openSettings();
-}
-
 MainMenu::MainMenu(Game *game) {
     sf::RenderWindow *window = game->window;
     this->background.setFillColor(sf::Color::White);
@@ -18,11 +10,10 @@ MainMenu::MainMenu(Game *game) {
 
     sf::Vector2f buttonSize(120, 60);
     std::vector<std::string> buttonsTitle{"Start", "Settings", "Exit"};
-    typedef void (*func)(Game *);
-    std::vector<func> buttonCallbacks{exit, openSettings, exit};
+    typedef void (*gameMethod)(Game *);
+    std::vector<gameMethod> buttonCallbacks{Game::startGame, Game::openSettings, Game::stop};
+
     int buttonsGap = 10;
-
-
     sf::Vector2i startButtonsPos(
             window->getSize().x / 2. - buttonSize.x / 2.,
             window->getSize().y / 2. -
@@ -40,7 +31,6 @@ MainMenu::MainMenu(Game *game) {
                         buttonCallbacks[i]
                 )
         );
-
 }
 
 void MainMenu::render(sf::RenderTarget &target) {
