@@ -26,9 +26,9 @@ Button::Button(int x, int y, sf::Vector2f size, std::string text) {
     this->state = BTN_IDLE;
 }
 
-Button::Button(int x, int y, sf::Vector2f size, std::string text, Game *game, void(*callback)(Game *)) : Button(x, y,
-                                                                                                                size,
-                                                                                                                text) {
+Button::Button(int x, int y, sf::Vector2f size, std::string text, Game *game, void (Game::*callback)()) : Button(x, y,
+                                                                                                                 size,
+                                                                                                                 text) {
     this->callback = callback;
     this->game = game;
 }
@@ -75,6 +75,6 @@ bool Button::isPressed() const {
 
 void Button::click() {
     if (callback) {
-        this->callback(game);
+        ((*this->game).*callback)();
     }
 }

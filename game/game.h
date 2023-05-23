@@ -23,11 +23,11 @@ public:
 
     void render();
 
-    static void stop(Game *game);
+    void stop();
 
-    static void openSettings(Game *);
+    void openSettings();
 
-    static void startGame(Game *game);
+    void startGame();
 
 
 private:

@@ -39,15 +39,14 @@ GameScreen *Game::currentScreen() {
     return screens[this->currentScreenId];
 }
 
-void Game::stop(Game *game) {
-    game->running = false;
+void Game::stop() {
+    this->running = false;
 }
 
-void Game::openSettings(Game *game) {
-    game->currentScreenId = SETTINGS_SCREEN;
+void Game::openSettings() {
+    this->currentScreenId = SETTINGS_SCREEN;
 }
 
-void Game::startGame(Game *game) {
-    game->currentScreenId = GAME_SCREEN;
+void Game::startGame() {
+    this->currentScreenId = GAME_SCREEN;
 }
-

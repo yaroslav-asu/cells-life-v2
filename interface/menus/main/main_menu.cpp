@@ -10,8 +10,8 @@ MainMenu::MainMenu(Game *game) {
 
     sf::Vector2f buttonSize(120, 60);
     std::vector<std::string> buttonsTitle{"Start", "Settings", "Exit"};
-    typedef void (*gameMethod)(Game *);
-    std::vector<gameMethod> buttonCallbacks{Game::startGame, Game::openSettings, Game::stop};
+    typedef void (Game::*gameMethod)();
+    std::vector<gameMethod> buttonCallbacks{&Game::startGame, &Game::openSettings, &Game::stop};
 
     int buttonsGap = 10;
     sf::Vector2i startButtonsPos(
