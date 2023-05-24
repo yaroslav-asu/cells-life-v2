@@ -4,7 +4,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "../../components/button/button.h"
-#include "../../game_screen/game_screen.h"
+#include "../../screen/screen.h"
 #include "../../../game/game.h"
 #include "../menu.h"
 

@@ -5,8 +5,7 @@
 
 std::vector<ButtonTemplate *> menuButtons = {
         new ButtonTemplate("Start", &Game::startGame),
-        new ButtonTemplate("Settings", &Game::openSettings),
-        new ButtonTemplate("Exit", &Game::stop)
+        new ButtonTemplate("Exit", &Game::exit)
 };
 
 MainMenu::MainMenu(Game *game) : Menu(game, menuButtons) {}

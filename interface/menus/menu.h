@@ -3,11 +3,11 @@
 
 
 #include <SFML/Graphics/RectangleShape.hpp>
-#include "../game_screen/game_screen.h"
+#include "../screen/screen.h"
 #include "../components/button/button.h"
 #include "../components/button/template/button_template.h"
 
-class Menu : public GameScreen {
+class Menu : public Screen {
 public:
     explicit Menu(Game *);
 
