@@ -29,7 +29,6 @@ public:
 
     void startGame();
 
-
 private:
     GameScreen *currentScreen();
 

@@ -11,7 +11,7 @@ Game::Game(sf::Vector2i size) {
 }
 
 void Game::render() {
-    this->currentScreen()->render(*window);
+    this->currentScreen()->render();
 }
 
 void Game::update(sf::Event event) {

@@ -1,42 +1,20 @@
 #include <SFML/Graphics/RenderWindow.hpp>
-#include <iostream>
 #include <functional>
+#include <iostream>
 #include "main_menu.h"
 
-MainMenu::MainMenu(Game *game) {
-    sf::RenderWindow *window = game->window;
-    this->background.setFillColor(sf::Color::White);
-    this->background.setSize(sf::Vector2f(game->window->getSize()));
+std::vector<ButtonTemplate *> menuButtons = {
+        new ButtonTemplate("Start", &Game::startGame),
+        new ButtonTemplate("Settings", &Game::openSettings),
+        new ButtonTemplate("Exit", &Game::stop)
+};
 
-    sf::Vector2f buttonSize(120, 60);
-    std::vector<std::string> buttonsTitle{"Start", "Settings", "Exit"};
-    typedef void (Game::*gameMethod)();
-    std::vector<gameMethod> buttonCallbacks{&Game::startGame, &Game::openSettings, &Game::stop};
+MainMenu::MainMenu(Game *game) : Menu(game, menuButtons) {}
 
-    int buttonsGap = 10;
-    sf::Vector2i startButtonsPos(
-            window->getSize().x / 2. - buttonSize.x / 2.,
-            window->getSize().y / 2. -
-            (buttonsTitle.size() * buttonSize.y + (buttonsTitle.size() - 1) * buttonsGap) / 2.
-    );
-
-    for (int i = 0; i < buttonsTitle.size(); i++)
-        buttons.push_back(
-                new Button(
-                        startButtonsPos.x,
-                        startButtonsPos.y + buttonSize.y * i + buttonsGap * i,
-                        buttonSize,
-                        buttonsTitle[i],
-                        game,
-                        buttonCallbacks[i]
-                )
-        );
-}
-
-void MainMenu::render(sf::RenderTarget &target) {
-    target.draw(this->background);
+void MainMenu::render() {
+    this->game->window->draw(this->background);
     for (Button *button: buttons) {
-        button->render(target);
+        button->render(*this->game->window);
     }
 }
 
