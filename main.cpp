@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
 #include "interface/menus/main/main_menu.h"
 #include "game/game.h"
 

@@ -3,10 +3,10 @@
 
 
 #include <SFML/System.hpp>
-#include "../interface/game_screen/game_screen.h"
+#include "../interface/screen/screen.h"
 
 enum {
-    MAIN_MENU_SCREEN, SETTINGS_SCREEN, GAME_SCREEN
+    MAIN_MENU_SCREEN, GAME_SCREEN, GAME_MENU_SCREEN
 };
 
 class Game {
@@ -14,8 +14,9 @@ public:
     sf::RenderWindow *window;
     unsigned short currentScreenId = MAIN_MENU_SCREEN;
     bool running;
+    bool paused = false;
 
-    std::vector<GameScreen *> screens;
+    std::vector<Screen *> screens;
 
     Game(sf::Vector2i size);
 
@@ -23,15 +24,18 @@ public:
 
     void render();
 
-    void stop();
+    void exit();
 
-    void openSettings();
+    void openGameMenu();
 
     void startGame();
 
+    void pauseGame();
+
+    void continueGame();
 
 private:
-    GameScreen *currentScreen();
+    Screen *currentScreen();
 
     void update(sf::Event event);
 };
