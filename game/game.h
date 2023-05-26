@@ -6,7 +6,7 @@
 #include "../interface/screen/screen.h"
 
 enum {
-    MAIN_MENU_SCREEN, GAME_SCREEN, GAME_MENU_SCREEN
+    MAIN_MENU_SCREEN, GAME_FIELD_SCREEN, GAME_MENU_SCREEN
 };
 
 class Game {

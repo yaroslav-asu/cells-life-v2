@@ -1,4 +1,3 @@
-#include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Window.hpp>
 #include "screen.h"
 

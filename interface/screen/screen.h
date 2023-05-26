@@ -5,6 +5,8 @@
 
 class Screen {
 public:
+    sf::RectangleShape background;
+
     virtual void render();
 
     virtual void update(sf::Event);

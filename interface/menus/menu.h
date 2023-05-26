@@ -14,9 +14,7 @@ public:
     Menu(Game *, std::vector<ButtonTemplate *> &);
 
     Game *game;
-
-    sf::RectangleShape background;
-
+    
     std::vector<Button *> buttons;
 
     virtual void render();
