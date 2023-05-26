@@ -20,6 +20,6 @@ add_executable(
         interface/components/button/template/button_template.cpp
         interface/menus/game/game_menu.cpp
         game/config/game_config.cpp game/field/game_field.cpp
-)
+        game/cell/cell.cpp internal/renderable/renderable.cpp game/config/cell/cell_config.cpp)
 
 target_link_libraries(cells_live sfml-graphics sfml-audio)

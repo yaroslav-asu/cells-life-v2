@@ -6,6 +6,7 @@
 #include "../game.h"
 #include <SFML/Graphics.hpp>
 #include "../config/game_config.h"
+#include "../cell/cell.h"
 
 
 class GameField : public Screen {
@@ -15,6 +16,8 @@ public:
     GameField(Game *, GameConfig);
 
     void render() override;
+
+    std::vector<std::vector<Cell *>> field;
 };
 
 

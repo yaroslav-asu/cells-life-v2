@@ -1,6 +1,5 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <functional>
-#include <iostream>
 #include "main_menu.h"
 
 std::vector<ButtonTemplate *> menuButtons = {

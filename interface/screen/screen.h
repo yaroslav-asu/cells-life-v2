@@ -2,8 +2,9 @@
 #define CELLS_LIVE_SCREEN_H
 
 #include <SFML/Graphics.hpp>
+#include "../../internal/renderable/renderable.h"
 
-class Screen {
+class Screen : public Renderable {
 public:
     sf::RectangleShape background;
 

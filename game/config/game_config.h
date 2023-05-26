@@ -4,15 +4,16 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
+#include "cell/cell_config.h"
 
 
 class GameConfig {
 public:
-    GameConfig(unsigned int, unsigned int, unsigned int);
+    GameConfig(unsigned int, unsigned int, unsigned short);
 
     sf::Vector2f windowSize;
-    unsigned int cellSize;
     sf::Color backgroundColor = sf::Color(180, 180, 180);
+    CellConfig cellConfig;
 };
 
 

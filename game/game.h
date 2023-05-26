@@ -9,10 +9,15 @@ enum {
     MAIN_MENU_SCREEN, GAME_FIELD_SCREEN, GAME_MENU_SCREEN
 };
 
+enum {
+    FOOD_COLOR_SCHEME, ENERGY_COLOR_SCHEME
+};
+
 class Game {
 public:
     sf::RenderWindow *window;
     unsigned short currentScreenId = MAIN_MENU_SCREEN;
+    unsigned short currentColorScheme = FOOD_COLOR_SCHEME;
     bool running;
     bool paused = false;
 
