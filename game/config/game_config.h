@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include "cell/cell_config.h"
+#include "field/field_config.h"
 
 
 class GameConfig {
@@ -14,6 +15,7 @@ public:
     sf::Vector2f windowSize;
     sf::Color backgroundColor = sf::Color(180, 180, 180);
     CellConfig cellConfig;
+    FieldConfig fieldConfig;
 };
 
 

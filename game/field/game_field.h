@@ -10,14 +10,20 @@
 
 
 class GameField : public Screen {
-public:
-    Game *game;
+private:
+    void initField();
 
-    GameField(Game *, GameConfig);
+    unsigned int rows, columns;
+
+public:
+    GameField(Game *game, FieldConfig config);
+
+    Game *game;
 
     void render() override;
 
     std::vector<std::vector<Cell *>> field;
+    void addCell(unsigned int x, unsigned int y);
 };
 
 

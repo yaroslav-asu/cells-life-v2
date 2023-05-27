@@ -12,10 +12,15 @@ private:
     unsigned short mutationChance;
     sf::RectangleShape shape;
     Game *game;
+    unsigned int energy;
 public:
-    Cell(Game *);
+    sf::Vector2u coords;
 
     Cell(CellConfig &, Game *);
+
+    explicit Cell(Game *);
+
+    Cell(CellConfig &, Game *, sf::Vector2<unsigned int>);
 
     void render();
 

@@ -10,9 +10,13 @@ Game::Game(sf::Vector2i size) {
     this->window = new sf::RenderWindow(sf::VideoMode(windowSize.x, windowSize.y), "Cells Live");
     GameConfig config(500, 500, 5);
 
-    screens.insert(screens.begin() + MAIN_MENU_SCREEN, new MainMenu(this));
-    screens.insert(screens.begin() + GAME_MENU_SCREEN, new GameMenu(this));
-    screens.insert(screens.begin() + GAME_FIELD_SCREEN, new GameField(this, config));
+    screens.resize(10);
+    screens[MAIN_MENU_SCREEN] = new MainMenu(this);
+    screens[GAME_MENU_SCREEN] = new GameMenu(this);
+    screens[GAME_FIELD_SCREEN] = new GameField(this, config.fieldConfig);
+
+    colorSchemes.resize(10);
+    colorSchemes[ENERGY_COLOR_SCHEME] = new EnergyColorScheme(config.cellConfig);
 }
 
 void Game::render() {
@@ -24,7 +28,6 @@ void Game::update(sf::Event event) {
 }
 
 void Game::run() {
-    this->running = true;
     while (window->isOpen() && running) {
         sf::Event event{};
         while (window->pollEvent(event)) {
