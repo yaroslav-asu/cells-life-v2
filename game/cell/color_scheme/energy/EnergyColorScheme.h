@@ -1,9 +1,9 @@
-#ifndef CELLS_LIVE_ENERGY_COLOR_SCHEME_H
-#define CELLS_LIVE_ENERGY_COLOR_SCHEME_H
+#ifndef CELLS_LIVE_ENERGYCOLORSCHEME_H
+#define CELLS_LIVE_ENERGYCOLORSCHEME_H
 
 
-#include "../color_scheme.h"
-#include "../../../config/cell/cell_config.h"
+#include "../ColorScheme.h"
+#include "../../../config/cell/CellConfig.h"
 
 class EnergyColorScheme : public ColorScheme {
 public:
@@ -18,4 +18,4 @@ public:
 };
 
 
-#endif //CELLS_LIVE_ENERGY_COLOR_SCHEME_H
+#endif //CELLS_LIVE_ENERGYCOLORSCHEME_H

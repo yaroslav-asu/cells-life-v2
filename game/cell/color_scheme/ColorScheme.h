@@ -1,5 +1,5 @@
-#ifndef CELLS_LIVE_COLOR_SCHEME_H
-#define CELLS_LIVE_COLOR_SCHEME_H
+#ifndef CELLS_LIVE_COLORSCHEME_H
+#define CELLS_LIVE_COLORSCHEME_H
 
 #include <SFML/Graphics.hpp>
 
@@ -16,4 +16,4 @@ public:
 };
 
 
-#endif //CELLS_LIVE_COLOR_SCHEME_H
+#endif //CELLS_LIVE_COLORSCHEME_H

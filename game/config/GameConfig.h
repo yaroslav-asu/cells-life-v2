@@ -4,8 +4,8 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
-#include "cell/cell_config.h"
-#include "field/field_config.h"
+#include "cell/CellConfig.h"
+#include "field/FieldConfig.h"
 
 
 class GameConfig {

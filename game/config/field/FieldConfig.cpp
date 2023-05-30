@@ -1,6 +1,6 @@
 #include <SFML/System.hpp>
 #include <SFML/Graphics/Color.hpp>
-#include "field_config.h"
+#include "FieldConfig.h"
 
 FieldConfig::FieldConfig() : FieldConfig(sf::Vector2u(100, 100), CellConfig().size) {}
 

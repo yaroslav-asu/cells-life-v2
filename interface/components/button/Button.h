@@ -4,7 +4,7 @@
 
 #include <string>
 #include <SFML/Graphics.hpp>
-#include "../../../game/game.h"
+#include "../../../game/Game.h"
 
 enum {
     BTN_IDLE, BTN_HOVER, BTN_PRESSED, BTN_RELEASED

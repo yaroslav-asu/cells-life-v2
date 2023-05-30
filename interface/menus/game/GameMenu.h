@@ -2,7 +2,7 @@
 #define CELLS_LIVE_GAMEMENU_H
 
 
-#include "../menu.h"
+#include "../Menu.h"
 
 class GameMenu : public Menu {
 public:

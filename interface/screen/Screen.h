@@ -2,13 +2,13 @@
 #define CELLS_LIVE_SCREEN_H
 
 #include <SFML/Graphics.hpp>
-#include "../../internal/renderable/renderable.h"
+#include "../../internal/renderable/Renderable.h"
 
 class Screen : public Renderable {
 public:
     sf::RectangleShape background;
 
-    virtual void render();
+    virtual void render(sf::RenderTarget *window);
 
     virtual void update(sf::Event);
 };

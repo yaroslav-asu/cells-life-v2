@@ -3,8 +3,8 @@
 
 
 #include <SFML/System.hpp>
-#include "../interface/screen/screen.h"
-#include "cell/color_scheme/energy/energy_color_scheme.h"
+#include "../interface/screen/Screen.h"
+#include "cell/color_scheme/energy/EnergyColorScheme.h"
 
 enum {
     MAIN_MENU_SCREEN, GAME_FIELD_SCREEN, GAME_MENU_SCREEN

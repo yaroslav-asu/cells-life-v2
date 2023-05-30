@@ -1,4 +1,4 @@
-#include "color_scheme.h"
+#include "ColorScheme.h"
 
 std::vector<sf::Color> ColorScheme::gradient(sf::Color from, sf::Color to, unsigned int length) {
     std::vector<sf::Color> colors;

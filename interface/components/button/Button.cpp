@@ -1,4 +1,4 @@
-#include "button.h"
+#include "Button.h"
 
 sf::Color idleColor(120, 120, 120);
 sf::Color hoverColor(150, 150, 150);

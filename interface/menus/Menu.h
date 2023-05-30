@@ -3,9 +3,9 @@
 
 
 #include <SFML/Graphics/RectangleShape.hpp>
-#include "../screen/screen.h"
-#include "../components/button/button.h"
-#include "../components/button/template/button_template.h"
+#include "../screen/Screen.h"
+#include "../components/button/Button.h"
+#include "../components/button/template/ButtonTemplate.h"
 
 class Menu : public Screen {
 public:
@@ -17,7 +17,7 @@ public:
     
     std::vector<Button *> buttons;
 
-    virtual void render();
+    virtual void render(sf::RenderTarget *target);
 
     virtual void update(sf::Event event);
 };

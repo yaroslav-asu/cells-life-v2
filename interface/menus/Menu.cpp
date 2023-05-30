@@ -1,6 +1,6 @@
-#include "menu.h"
-#include "../../game/game.h"
-#include "../components/button/template/button_template.h"
+#include "Menu.h"
+#include "../../game/Game.h"
+#include "../components/button/template/ButtonTemplate.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <iostream>
@@ -38,8 +38,8 @@ Menu::Menu(Game *game, std::vector<ButtonTemplate *> &buttonsTemplate) {
     }
 }
 
-void Menu::render() {
-    game->window->draw(this->background);
+void Menu::render(sf::RenderTarget *target) {
+    target->draw(this->background);
     for (Button *button: buttons) {
         button->render(*game->window);
     }

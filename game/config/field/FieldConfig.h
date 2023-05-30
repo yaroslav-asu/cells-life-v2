@@ -1,8 +1,8 @@
-#ifndef CELLS_LIVE_FIELD_CONFIG_H
-#define CELLS_LIVE_FIELD_CONFIG_H
+#ifndef CELLS_LIVE_FIELDCONFIG_H
+#define CELLS_LIVE_FIELDCONFIG_H
 
 
-#include "../cell/cell_config.h"
+#include "../cell/CellConfig.h"
 
 class FieldConfig {
 public:
@@ -17,4 +17,4 @@ public:
 };
 
 
-#endif //CELLS_LIVE_FIELD_CONFIG_H
+#endif //CELLS_LIVE_FIELDCONFIG_H

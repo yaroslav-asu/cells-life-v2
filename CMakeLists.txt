@@ -12,19 +12,19 @@ find_package(SFML
 add_executable(
         cells_live
         main.cpp
-        interface/components/button/button.cpp
-        game/game.cpp
-        interface/menus/main/main_menu.cpp
-        interface/screen/screen.cpp
-        interface/menus/menu.cpp
-        interface/components/button/template/button_template.cpp
-        interface/menus/game/game_menu.cpp
-        game/config/game_config.cpp game/field/game_field.cpp
-        game/cell/cell.cpp internal/renderable/renderable.cpp
-        game/config/cell/cell_config.cpp
-        game/cell/color_scheme/color_scheme.cpp
-        game/cell/color_scheme/energy/energy_color_scheme.cpp
-        game/config/field/field_config.cpp
-)
+        interface/components/button/Button.cpp
+        game/Game.cpp
+        interface/menus/main/MainMenu.cpp
+        interface/screen/Screen.cpp
+        interface/menus/Menu.cpp
+        interface/components/button/template/ButtonTemplate.cpp
+        interface/menus/game/GameMenu.cpp
+        game/config/GameConfig.cpp game/field/GameField.cpp
+        game/cell/Cell.cpp internal/renderable/Renderable.cpp
+        game/config/cell/CellConfig.cpp
+        game/cell/color_scheme/ColorScheme.cpp
+        game/cell/color_scheme/energy/EnergyColorScheme.cpp
+        game/config/field/FieldConfig.cpp
+        game/cell/alive/AliveCell.cpp)
 
 target_link_libraries(cells_live sfml-graphics sfml-audio)

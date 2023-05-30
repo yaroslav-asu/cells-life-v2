@@ -1,5 +1,5 @@
-#ifndef CELLS_LIVE_CELL_CONFIG_H
-#define CELLS_LIVE_CELL_CONFIG_H
+#ifndef CELLS_LIVE_CELLCONFIG_H
+#define CELLS_LIVE_CELLCONFIG_H
 
 
 class CellConfig {
@@ -16,4 +16,4 @@ public:
 };
 
 
-#endif //CELLS_LIVE_CELL_CONFIG_H
+#endif //CELLS_LIVE_CELLCONFIG_H

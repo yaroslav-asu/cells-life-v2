@@ -1,4 +1,4 @@
-#include "energy_color_scheme.h"
+#include "EnergyColorScheme.h"
 
 EnergyColorScheme::EnergyColorScheme() : EnergyColorScheme(CellConfig()) {}
 

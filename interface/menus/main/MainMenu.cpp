@@ -1,6 +1,6 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <functional>
-#include "main_menu.h"
+#include "MainMenu.h"
 
 std::vector<ButtonTemplate *> menuButtons = {
         new ButtonTemplate("Start", &Game::startGame),

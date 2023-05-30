@@ -1,5 +1,5 @@
-#include "game_config.h"
-#include "field/field_config.h"
+#include "GameConfig.h"
+#include "field/FieldConfig.h"
 
 GameConfig::GameConfig(unsigned int windowWidth, unsigned int windowHeight, unsigned short cellsSize) {
     this->windowSize = sf::Vector2f((float) windowWidth, (float) windowHeight);

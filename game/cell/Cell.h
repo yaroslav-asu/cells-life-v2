@@ -2,17 +2,18 @@
 #define CELLS_LIVE_CELL_H
 
 
-#include "../../internal/renderable/renderable.h"
-#include "../game.h"
-#include "../config/cell/cell_config.h"
+#include "../../internal/renderable/Renderable.h"
+#include "../Game.h"
+#include "../config/cell/CellConfig.h"
 
 class Cell : Renderable {
-private:
+protected:
     unsigned short size;
-    unsigned short mutationChance;
     sf::RectangleShape shape;
     Game *game;
-    unsigned int energy;
+
+    virtual sf::Color color();
+
 public:
     sf::Vector2u coords;
 
@@ -22,11 +23,9 @@ public:
 
     Cell(CellConfig &, Game *, sf::Vector2<unsigned int>);
 
-    void render();
+    void render(sf::RenderTarget *target);
 
-    void update();
-
-    sf::Color color();
+    void update() override;
 };
 
 

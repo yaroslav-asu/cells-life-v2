@@ -1,4 +1,4 @@
-#include "cell_config.h"
+#include "CellConfig.h"
 
 CellConfig::CellConfig(unsigned short size, unsigned short mutationChance) : CellConfig() {
     this->size = size;
