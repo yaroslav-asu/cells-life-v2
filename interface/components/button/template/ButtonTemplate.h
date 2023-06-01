@@ -1,7 +1,7 @@
-#ifndef CELLS_LIVE_BUTTON_TEMPLATE_H
-#define CELLS_LIVE_BUTTON_TEMPLATE_H
+#ifndef CELLS_LIVE_BUTTONTEMPLATE_H
+#define CELLS_LIVE_BUTTONTEMPLATE_H
 
-#include "../../../../game/game.h"
+#include "../../../../game/Game.h"
 
 #include <string>
 
@@ -15,4 +15,4 @@ public:
 };
 
 
-#endif //CELLS_LIVE_BUTTON_TEMPLATE_H
+#endif //CELLS_LIVE_BUTTONTEMPLATE_H

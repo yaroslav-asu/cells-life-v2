@@ -3,22 +3,25 @@
 
 
 #include <SFML/System.hpp>
-#include "../interface/screen/screen.h"
+#include "../interface/screen/Screen.h"
+#include "cell/color_scheme/energy/EnergyColorScheme.h"
 
 enum {
-    MAIN_MENU_SCREEN, GAME_SCREEN, GAME_MENU_SCREEN
+    MAIN_MENU_SCREEN, GAME_FIELD_SCREEN, GAME_MENU_SCREEN
 };
+
 
 class Game {
 public:
     sf::RenderWindow *window;
     unsigned short currentScreenId = MAIN_MENU_SCREEN;
-    bool running;
+    unsigned short currentColorScheme = ENERGY_COLOR_SCHEME;
+    bool running = true;
     bool paused = false;
-
     std::vector<Screen *> screens;
+    std::vector<ColorScheme *> colorSchemes;
 
-    Game(sf::Vector2i size);
+    explicit Game(sf::Vector2i size);
 
     void run();
 

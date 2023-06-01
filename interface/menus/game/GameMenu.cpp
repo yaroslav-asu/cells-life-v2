@@ -1,4 +1,4 @@
-#include "game_menu.h"
+#include "GameMenu.h"
 
 namespace game_menu{
     std::vector<ButtonTemplate *> menuButtons = {
