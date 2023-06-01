@@ -13,7 +13,7 @@ GameField::GameField(Game *game, GameConfig *config) {
 }
 
 void GameField::render(sf::RenderTarget *target) {
-    this->game->window->draw(this->background);
+    target->draw(this->background);
     for (int i = 0; i < rows; ++i) {
         for (int j = 0; j < columns; ++j) {
             if (this->field[i][j]) {
@@ -31,5 +31,8 @@ void GameField::initField() {
 }
 
 void GameField::addCell(unsigned int x, unsigned int y) {
-    this->field[x][y] = new AliveCell(this->config->cellConfig, this->game, sf::Vector2u(x*this->config->cellConfig.size, y*this->config->cellConfig.size));
+    this->field[x][y] = new AliveCell(
+            this->config->cellConfig, this->game,
+            sf::Vector2u(x * this->config->cellConfig.size, y * this->config->cellConfig.size)
+    );
 }

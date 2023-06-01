@@ -3,6 +3,8 @@
 
 
 #include "../Cell.h"
+#include "../../field/GameField.h"
+#include <vector>
 
 class AliveCell : public Cell {
 protected:
@@ -11,9 +13,12 @@ protected:
 
     sf::Color color() override;
 
+    std::vector<std::vector<unsigned short>> genome;
+    unsigned short genomeId = 0;
+
 public:
     AliveCell(CellConfig &config, Game *game, sf::Vector2u coords);
-
+    void reproduce();
 };
 
 
