@@ -28,10 +28,12 @@ public:
     std::vector<std::vector<Cell *>> field;
 
     void addCell(sf::Vector2u pos);
+
     void removeCell(sf::Vector2u pos);
 
     void update(sf::Event) override;
 
+    void generateRandomCells();
 };
 
 

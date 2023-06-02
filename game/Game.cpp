@@ -8,7 +8,7 @@
 Game::Game(sf::Vector2i size) {
     sf::Vector2i windowSize(size.x, size.y);
     this->window = new sf::RenderWindow(sf::VideoMode(windowSize.x, windowSize.y), "Cells Live");
-    auto *cellConfig = new CellConfig(20);
+    auto *cellConfig = new CellConfig(5);
     auto *fieldConfig = new FieldConfig(sf::Vector2u(size.x, size.y), cellConfig->size);
     auto *config = new GameConfig(cellConfig, fieldConfig);
 
@@ -37,10 +37,10 @@ void Game::run() {
             if (event.type == sf::Event::Closed)
                 window->close();
         }
-        if (counter % 1000 == 0) {
+//        if (counter % 1000 == 0) {
             window->clear();
             this->update(event);
-        }
+//        }
         this->render();
 
         window->display();

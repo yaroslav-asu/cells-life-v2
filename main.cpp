@@ -2,7 +2,8 @@
 #include "game/Game.h"
 
 int main() {
-    Game game(sf::Vector2i(500, 500));
+    srand (time(NULL));
+    Game game(sf::Vector2i(1500, 1200));
     game.run();
     return 0;
 }

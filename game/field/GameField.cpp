@@ -11,12 +11,7 @@ GameField::GameField(Game *game, GameConfig *config) {
     this->config = config;
     initField();
     this->neighborsField = new NeighborsField(config->fieldConfig->size);
-
-    this->addCell(sf::Vector2u(1, 2));
-    this->addCell(sf::Vector2u(2, 3));
-    this->addCell(sf::Vector2u(3, 3));
-    this->addCell(sf::Vector2u(3, 2));
-    this->addCell(sf::Vector2u(3, 1));
+    this->generateRandomCells();
 
     this->neighborsField->update();
 }
@@ -60,10 +55,20 @@ void GameField::update(sf::Event) {
             auto neighbors = this->neighborsField->field[i][j];
             if (this->field[i][j] == nullptr && neighbors == 3) {
                 this->addCell(sf::Vector2u(i, j));
-            } else if (this->field[i][j] != nullptr &&neighbors != 2 && neighbors != 3) {
+            } else if (this->field[i][j] != nullptr && neighbors != 2 && neighbors != 3) {
                 this->removeCell(sf::Vector2u(i, j));
             }
         }
     }
     this->neighborsField->update();
+}
+
+void GameField::generateRandomCells() {
+    for (unsigned int i = 0; i < this->rows; ++i) {
+        for (unsigned int j = 0; j < this->columns; ++j) {
+            if (rand() % 3 == 0) {
+                this->addCell({i, j});
+            }
+        }
+    }
 }
