@@ -9,7 +9,7 @@ class EnergyColorScheme : public ColorScheme {
 public:
     EnergyColorScheme();
 
-    explicit EnergyColorScheme(CellConfig config);
+    explicit EnergyColorScheme(CellConfig *config);
 
     std::vector<sf::Color> colors;
 

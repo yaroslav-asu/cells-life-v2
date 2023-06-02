@@ -17,11 +17,11 @@ protected:
 public:
     sf::Vector2u coords;
 
-    Cell(CellConfig &, Game *);
+    Cell(CellConfig *, Game *);
 
     explicit Cell(Game *);
 
-    Cell(CellConfig &, Game *, sf::Vector2<unsigned int>);
+    Cell(CellConfig *, Game *, sf::Vector2<unsigned int>);
 
     void render(sf::RenderTarget *target);
 

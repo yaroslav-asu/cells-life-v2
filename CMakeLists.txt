@@ -25,6 +25,8 @@ add_executable(
         game/cell/color_scheme/ColorScheme.cpp
         game/cell/color_scheme/energy/EnergyColorScheme.cpp
         game/config/field/FieldConfig.cpp
-        game/cell/alive/AliveCell.cpp)
+        game/cell/alive/AliveCell.cpp
+        game/field/neighbors/NeighborsField.cpp
+)
 
 target_link_libraries(cells_live sfml-graphics sfml-audio)
