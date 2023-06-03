@@ -17,7 +17,7 @@ protected:
     unsigned short genomeId = 0;
 
 public:
-    AliveCell(CellConfig &config, Game *game, sf::Vector2u coords);
+    AliveCell(CellConfig *config, game::Game *game, sf::Vector2u coords);
     void reproduce();
 };
 

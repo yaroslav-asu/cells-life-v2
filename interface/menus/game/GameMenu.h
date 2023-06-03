@@ -6,7 +6,7 @@
 
 class GameMenu : public Menu {
 public:
-    GameMenu(Game *);
+    GameMenu(game::Game *);
 };
 
 

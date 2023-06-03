@@ -12,9 +12,9 @@ enum {
 
 class Button {
 private:
-    void (Game::*callback)();
-
-    Game *game;
+    void (game::Game::*callback)();
+    std::string _text;
+    game::Game *game;
 public:
     sf::RectangleShape shape;
     sf::Font font;
@@ -24,7 +24,7 @@ public:
 
     Button(int, int, sf::Vector2f, std::string);
 
-    Button(int x, int y, sf::Vector2f size, std::string text, Game *game, void (Game::*callback)());
+    Button(int x, int y, sf::Vector2f size, std::string text, game::Game *game, void (game::Game::*callback)());
 
     void render(sf::RenderTarget &) const;
 

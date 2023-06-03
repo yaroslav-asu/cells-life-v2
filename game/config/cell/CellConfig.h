@@ -5,9 +5,8 @@
 class CellConfig {
 public:
     unsigned short size;
-    unsigned short mutationChance;
 
-    CellConfig(unsigned short, unsigned short);
+    CellConfig(unsigned short size);
 
     CellConfig();
 

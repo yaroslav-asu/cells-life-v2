@@ -10,12 +10,11 @@
 
 class GameConfig {
 public:
-    GameConfig(unsigned int, unsigned int, unsigned short);
+    GameConfig(CellConfig *cellConfig, FieldConfig *fieldConfig);
 
-    sf::Vector2f windowSize;
     sf::Color backgroundColor = sf::Color(180, 180, 180);
-    CellConfig cellConfig;
-    FieldConfig fieldConfig;
+    CellConfig *cellConfig;
+    FieldConfig *fieldConfig;
 };
 
 

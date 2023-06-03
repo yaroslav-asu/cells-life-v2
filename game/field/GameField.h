@@ -7,6 +7,7 @@
 #include <SFML/Graphics.hpp>
 #include "../config/GameConfig.h"
 #include "../cell/Cell.h"
+#include "neighbors/NeighborsField.h"
 
 
 class GameField : public Screen {
@@ -15,17 +16,24 @@ private:
 
     unsigned int rows, columns;
     GameConfig *config;
+    NeighborsField *neighborsField;
 
 public:
-    GameField(Game *game, GameConfig *config);
+    GameField(game::Game *game, GameConfig *config);
 
-    Game *game;
+    game::Game *game;
 
     void render(sf::RenderTarget *target) override;
 
     std::vector<std::vector<Cell *>> field;
 
-    void addCell(unsigned int x, unsigned int y);
+    void addCell(sf::Vector2u pos);
+
+    void removeCell(sf::Vector2u pos);
+
+    void update(sf::Event) override;
+
+    void generateRandomCells();
 };
 
 

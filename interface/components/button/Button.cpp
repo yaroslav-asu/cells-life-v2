@@ -1,3 +1,4 @@
+#include <spdlog/spdlog.h>
 #include "Button.h"
 
 sf::Color idleColor(120, 120, 120);
@@ -7,6 +8,7 @@ sf::Color pressedColor(180, 180, 180);
 Button::Button(int x, int y, sf::Vector2f size, std::string text) {
     this->width = size.x;
     this->height = size.y;
+    this->_text = text;
 
     shape.setSize(sf::Vector2f(width, height));
     shape.setFillColor(sf::Color::Blue);
@@ -26,9 +28,10 @@ Button::Button(int x, int y, sf::Vector2f size, std::string text) {
     this->state = BTN_IDLE;
 }
 
-Button::Button(int x, int y, sf::Vector2f size, std::string text, Game *game, void (Game::*callback)()) : Button(x, y,
+Button::Button(int x, int y, sf::Vector2f size, std::string text, game::Game *game, void (game::Game::*callback)()) : Button(x, y,
                                                                                                                  size,
                                                                                                                  text) {
+    spdlog::info("Button init");
     this->callback = callback;
     this->game = game;
 }
@@ -74,6 +77,7 @@ bool Button::isPressed() const {
 }
 
 void Button::click() {
+    spdlog::info("Button click: " + _text);
     if (callback) {
         ((*this->game).*callback)();
     }

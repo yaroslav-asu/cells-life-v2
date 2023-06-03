@@ -10,18 +10,18 @@ class Cell : Renderable {
 protected:
     unsigned short size;
     sf::RectangleShape shape;
-    Game *game;
+    game::Game *game;
 
     virtual sf::Color color();
 
 public:
     sf::Vector2u coords;
 
-    Cell(CellConfig &, Game *);
+    Cell(CellConfig *, game::Game *);
 
-    explicit Cell(Game *);
+    explicit Cell(game::Game *);
 
-    Cell(CellConfig &, Game *, sf::Vector2<unsigned int>);
+    Cell(CellConfig *, game::Game *, sf::Vector2<unsigned int>);
 
     void render(sf::RenderTarget *target);
 

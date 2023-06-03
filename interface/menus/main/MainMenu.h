@@ -10,7 +10,7 @@
 
 class MainMenu : public Menu {
 public:
-    explicit MainMenu(Game *);
+    explicit MainMenu(game::Game *);
 
     void render() override;
 

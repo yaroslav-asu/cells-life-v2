@@ -10,38 +10,40 @@ enum {
     MAIN_MENU_SCREEN, GAME_FIELD_SCREEN, GAME_MENU_SCREEN
 };
 
+namespace game {
+    class Game {
+    private:
+        int updateDelay;
+    public:
+        sf::RenderWindow *window;
+        unsigned short currentScreenId = MAIN_MENU_SCREEN;
+        unsigned short currentColorScheme = ENERGY_COLOR_SCHEME;
+        bool running = true;
+        bool paused = false;
+        std::vector<Screen *> screens;
+        std::vector<ColorScheme *> colorSchemes;
 
-class Game {
-public:
-    sf::RenderWindow *window;
-    unsigned short currentScreenId = MAIN_MENU_SCREEN;
-    unsigned short currentColorScheme = ENERGY_COLOR_SCHEME;
-    bool running = true;
-    bool paused = false;
-    std::vector<Screen *> screens;
-    std::vector<ColorScheme *> colorSchemes;
+        explicit Game(sf::Vector2i size);
 
-    explicit Game(sf::Vector2i size);
+        void run();
 
-    void run();
+        void render();
 
-    void render();
+        void exit();
 
-    void exit();
+        void openGameMenu();
 
-    void openGameMenu();
+        void startGame();
 
-    void startGame();
+        void togglePause();
 
-    void pauseGame();
+        void continueGame();
 
-    void continueGame();
+    private:
+        Screen *currentScreen();
 
-private:
-    Screen *currentScreen();
-
-    void update(sf::Event event);
-};
-
+        void update(sf::Event event);
+    };
+}
 
 #endif //CELLS_LIVE_GAME_H

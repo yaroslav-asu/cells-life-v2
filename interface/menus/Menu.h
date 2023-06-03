@@ -9,11 +9,11 @@
 
 class Menu : public Screen {
 public:
-    explicit Menu(Game *);
+    explicit Menu(game::Game *);
 
-    Menu(Game *, std::vector<ButtonTemplate *> &);
+    Menu(game::Game *, std::vector<ButtonTemplate *> &);
 
-    Game *game;
+    game::Game *game;
     
     std::vector<Button *> buttons;
 
