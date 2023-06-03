@@ -28,7 +28,7 @@ Button::Button(int x, int y, sf::Vector2f size, std::string text) {
     this->state = BTN_IDLE;
 }
 
-Button::Button(int x, int y, sf::Vector2f size, std::string text, Game *game, void (Game::*callback)()) : Button(x, y,
+Button::Button(int x, int y, sf::Vector2f size, std::string text, game::Game *game, void (game::Game::*callback)()) : Button(x, y,
                                                                                                                  size,
                                                                                                                  text) {
     spdlog::info("Button init");

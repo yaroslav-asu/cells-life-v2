@@ -7,11 +7,11 @@
 
 class ButtonTemplate {
 public:
-    ButtonTemplate(std::string title, void(Game::*gameMethod)());
+    ButtonTemplate(std::string title, void(game::Game::*gameMethod)());
 
     std::string title;
 
-    void (Game::*callback)();
+    void (game::Game::*callback)();
 };
 
 

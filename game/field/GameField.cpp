@@ -2,7 +2,7 @@
 #include "GameField.h"
 #include "../cell/alive/AliveCell.h"
 
-GameField::GameField(Game *game, GameConfig *config) {
+GameField::GameField(game::Game *game, GameConfig *config) {
     this->background = sf::RectangleShape(sf::Vector2f(config->fieldConfig->size));
     this->background.setFillColor(config->backgroundColor);
     this->game = game;

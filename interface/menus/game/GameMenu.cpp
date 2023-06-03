@@ -2,10 +2,10 @@
 
 namespace game_menu{
     std::vector<ButtonTemplate *> menuButtons = {
-            new ButtonTemplate("Continue", &Game::startGame),
-            new ButtonTemplate("Exit", &Game::exit)
+            new ButtonTemplate("Continue", &game::Game::startGame),
+            new ButtonTemplate("Exit", &game::Game::exit)
     };
 }
 
 
-GameMenu::GameMenu(Game *game) : Menu(game, game_menu::menuButtons) {}
+GameMenu::GameMenu(game::Game *game) : Menu(game, game_menu::menuButtons) {}

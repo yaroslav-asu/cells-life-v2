@@ -3,11 +3,11 @@
 #include "MainMenu.h"
 
 std::vector<ButtonTemplate *> menuButtons = {
-        new ButtonTemplate("Start", &Game::startGame),
-        new ButtonTemplate("Exit", &Game::exit)
+        new ButtonTemplate("Start", &game::Game::startGame),
+        new ButtonTemplate("Exit", &game::Game::exit)
 };
 
-MainMenu::MainMenu(Game *game) : Menu(game, menuButtons) {}
+MainMenu::MainMenu(game::Game *game) : Menu(game, menuButtons) {}
 
 void MainMenu::render() {
     this->game->window->draw(this->background);

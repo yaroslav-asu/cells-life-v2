@@ -4,7 +4,7 @@
 
 int main() {
     srand (time(NULL));
-    Game game(sf::Vector2i(1500, 1200));
+    game::Game game(sf::Vector2i(1500, 1200));
     game.run();
     return 0;
 }

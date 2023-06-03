@@ -19,9 +19,9 @@ private:
     NeighborsField *neighborsField;
 
 public:
-    GameField(Game *game, GameConfig *config);
+    GameField(game::Game *game, GameConfig *config);
 
-    Game *game;
+    game::Game *game;
 
     void render(sf::RenderTarget *target) override;
 
