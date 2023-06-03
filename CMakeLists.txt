@@ -9,6 +9,11 @@ find_package(SFML
         REQUIRED
         )
 
+if (NOT TARGET spdlog)
+    # Stand-alone build
+    find_package(spdlog REQUIRED)
+endif ()
+
 add_executable(
         cells_live
         main.cpp
@@ -29,4 +34,4 @@ add_executable(
         game/field/neighbors/NeighborsField.cpp
 )
 
-target_link_libraries(cells_live sfml-graphics sfml-audio)
+target_link_libraries(cells_live sfml-graphics sfml-audio spdlog::spdlog $<$<BOOL:${MINGW}>:ws2_32>)

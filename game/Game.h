@@ -12,6 +12,8 @@ enum {
 
 
 class Game {
+private:
+    int updateDelay;
 public:
     sf::RenderWindow *window;
     unsigned short currentScreenId = GAME_FIELD_SCREEN;

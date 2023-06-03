@@ -10,9 +10,8 @@ GameField::GameField(Game *game, GameConfig *config) {
     this->columns = config->fieldConfig->columnCount;
     this->config = config;
     initField();
-    this->neighborsField = new NeighborsField(config->fieldConfig->size);
+    this->neighborsField = new NeighborsField(sf::Vector2u (config->fieldConfig->rowCount, config->fieldConfig->columnCount));
     this->generateRandomCells();
-
     this->neighborsField->update();
 }
 
@@ -38,7 +37,7 @@ void GameField::addCell(sf::Vector2u pos) {
     delete this->field[pos.x][pos.y];
     this->field[pos.x][pos.y] = new AliveCell(
             this->config->cellConfig, this->game,
-            sf::Vector2u(pos.x * this->config->cellConfig->size, pos.y * this->config->cellConfig->size)
+            sf::Vector2u(pos.y * this->config->cellConfig->size, pos.x * this->config->cellConfig->size)
     );
     this->neighborsField->toAdd.push_back(pos);
 }
