@@ -13,7 +13,7 @@ enum {
 class Button {
 private:
     void (Game::*callback)();
-
+    std::string _text;
     Game *game;
 public:
     sf::RectangleShape shape;

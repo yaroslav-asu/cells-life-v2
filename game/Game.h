@@ -16,7 +16,7 @@ private:
     int updateDelay;
 public:
     sf::RenderWindow *window;
-    unsigned short currentScreenId = GAME_FIELD_SCREEN;
+    unsigned short currentScreenId = MAIN_MENU_SCREEN;
     unsigned short currentColorScheme = ENERGY_COLOR_SCHEME;
     bool running = true;
     bool paused = false;
@@ -35,7 +35,7 @@ public:
 
     void startGame();
 
-    void pauseGame();
+    void togglePause();
 
     void continueGame();
 

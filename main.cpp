@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <spdlog/spdlog.h>
 #include "game/Game.h"
 
 int main() {
