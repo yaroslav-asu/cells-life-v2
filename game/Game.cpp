@@ -11,10 +11,10 @@ namespace game {
         spdlog::info("Game init");
         sf::Vector2i windowSize(size.x, size.y);
         this->window = new sf::RenderWindow(sf::VideoMode(windowSize.x, windowSize.y), "");
-        auto *cellConfig = new CellConfig(2);
+        auto *cellConfig = new CellConfig(10);
         auto *fieldConfig = new FieldConfig(sf::Vector2u(size.x, size.y), cellConfig->size);
         auto *config = new GameConfig(cellConfig, fieldConfig);
-        updateDelay = 10000 * cellConfig->size / (size.x * size.y) + 1;
+        updateDelay = 300;
 
         screens.resize(10);
         spdlog::info("Game fields init");
@@ -52,19 +52,26 @@ namespace game {
                         break;
                     }
                 }
+                if(event.type == sf::Event::MouseButtonPressed){
+                    if (this->currentScreenId == GAME_FIELD_SCREEN){
+                        this->update(event);
+                        this->render();
+                        window->display();
+
+                    }
+                }
             }
-            if (this->paused) {
+            if (this->paused && this->currentScreenId == GAME_FIELD_SCREEN) {
                 continue;
             }
-            if (counter % updateDelay == 0) {
+
+            this->render();
+
+            window->display();
+            if (counter % updateDelay == 0 || this->currentScreenId != GAME_FIELD_SCREEN) {
                 window->clear();
                 this->update(event);
             }
-            this->render();
-
-
-            window->display();
-
             counter++;
         }
     }

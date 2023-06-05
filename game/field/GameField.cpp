@@ -10,7 +10,8 @@ GameField::GameField(game::Game *game, GameConfig *config) {
     this->columns = config->fieldConfig->columnCount;
     this->config = config;
     initField();
-    this->neighborsField = new NeighborsField(sf::Vector2u (config->fieldConfig->rowCount, config->fieldConfig->columnCount));
+    this->neighborsField = new NeighborsField(
+            sf::Vector2u(config->fieldConfig->rowCount, config->fieldConfig->columnCount));
     this->generateRandomCells();
     this->neighborsField->update();
 }
@@ -48,15 +49,24 @@ void GameField::removeCell(sf::Vector2u pos) {
     this->neighborsField->toRemove.push_back(pos);
 }
 
-void GameField::update(sf::Event) {
+void GameField::update(sf::Event event) {
     for (int i = 0; i < rows; ++i) {
         for (int j = 0; j < columns; ++j) {
-            auto neighbors = this->neighborsField->field[i][j];
-            if (this->field[i][j] == nullptr && neighbors == 3) {
-                this->addCell(sf::Vector2u(i, j));
-            } else if (this->field[i][j] != nullptr && neighbors != 2 && neighbors != 3) {
-                this->removeCell(sf::Vector2u(i, j));
+            if (!game->paused) {
+                auto neighbors = this->neighborsField->field[i][j];
+                if (this->field[i][j] == nullptr && neighbors == 3) {
+                    this->addCell(sf::Vector2u(i, j));
+                } else if (this->field[i][j] != nullptr && neighbors != 2 && neighbors != 3) {
+                    this->removeCell(sf::Vector2u(i, j));
+                }
             }
+        }
+    }
+    if (event.type == sf::Event::MouseButtonPressed) {
+        if (event.mouseButton.button == sf::Mouse::Button::Left) {
+            sf::Vector2i position = sf::Mouse::getPosition();
+            this->addCell(sf::Vector2u(position.y / this->config->cellConfig->size,
+                                       position.x / this->config->cellConfig->size));
         }
     }
     this->neighborsField->update();
@@ -65,7 +75,7 @@ void GameField::update(sf::Event) {
 void GameField::generateRandomCells() {
     for (unsigned int i = 0; i < this->rows; ++i) {
         for (unsigned int j = 0; j < this->columns; ++j) {
-            if (rand() % 3 == 0) {
+            if (rand() % 10 == 0) {
                 this->addCell({i, j});
             }
         }
