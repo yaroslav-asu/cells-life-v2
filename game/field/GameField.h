@@ -17,7 +17,6 @@ private:
     unsigned int rows, columns;
     GameConfig *config;
     NeighborsField *neighborsField;
-    bool pause = false;
 
 public:
     GameField(game::Game *game, GameConfig *config);

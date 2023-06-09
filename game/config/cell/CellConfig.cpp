@@ -6,6 +6,4 @@ CellConfig::CellConfig(unsigned short size) : CellConfig() {
 
 CellConfig::CellConfig() {
     this->size = 100;
-    this->defaultEnergy = 100;
-    this->maximumEnergy = 200;
 }

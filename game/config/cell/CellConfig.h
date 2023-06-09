@@ -9,9 +9,6 @@ public:
     CellConfig(unsigned short size);
 
     CellConfig();
-
-    unsigned int defaultEnergy;
-    unsigned int maximumEnergy;
 };
 
 

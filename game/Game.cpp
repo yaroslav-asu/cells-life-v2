@@ -21,9 +21,6 @@ namespace game {
         screens[MAIN_MENU_SCREEN] = new MainMenu(this);
         screens[GAME_MENU_SCREEN] = new GameMenu(this);
         screens[GAME_FIELD_SCREEN] = new GameField(this, config);
-
-        colorSchemes.resize(10);
-        colorSchemes[ENERGY_COLOR_SCHEME] = new EnergyColorScheme(config->cellConfig);
     }
 
     void Game::render() {
@@ -60,9 +57,6 @@ namespace game {
 
                     }
                 }
-            }
-            if (this->paused && this->currentScreenId == GAME_FIELD_SCREEN) {
-                continue;
             }
 
             this->render();

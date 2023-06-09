@@ -1,5 +1,4 @@
 #include "Cell.h"
-#include "color_scheme/ColorScheme.h"
 
 Cell::Cell(game::Game *game) : Cell(new CellConfig(), game) {}
 

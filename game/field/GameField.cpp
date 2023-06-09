@@ -65,8 +65,11 @@ void GameField::update(sf::Event event) {
     if (event.type == sf::Event::MouseButtonPressed) {
         if (event.mouseButton.button == sf::Mouse::Button::Left) {
             sf::Vector2i position = sf::Mouse::getPosition();
-            this->addCell(sf::Vector2u(position.y / this->config->cellConfig->size,
-                                       position.x / this->config->cellConfig->size));
+            auto cellSize = this->config->cellConfig->size;
+            if (this->field[position.x / cellSize][position.y / cellSize] == nullptr){
+                this->addCell(sf::Vector2u(position.y / cellSize,
+                                           position.x / cellSize));
+            }
         }
     }
     this->neighborsField->update();

@@ -27,8 +27,6 @@ add_executable(
         game/config/GameConfig.cpp game/field/GameField.cpp
         game/cell/Cell.cpp internal/renderable/Renderable.cpp
         game/config/cell/CellConfig.cpp
-        game/cell/color_scheme/ColorScheme.cpp
-        game/cell/color_scheme/energy/EnergyColorScheme.cpp
         game/config/field/FieldConfig.cpp
         game/cell/alive/AliveCell.cpp
         game/field/neighbors/NeighborsField.cpp
