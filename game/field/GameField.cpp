@@ -1,6 +1,6 @@
 #include <iostream>
 #include "GameField.h"
-#include "../cell/alive/AliveCell.h"
+#include "../cell/Cell.h"
 
 GameField::GameField(game::Game *game, GameConfig *config) {
     this->background = sf::RectangleShape(sf::Vector2f(config->fieldConfig->size));
@@ -36,7 +36,7 @@ void GameField::initField() {
 
 void GameField::addCell(sf::Vector2u pos) {
     delete this->field[pos.x][pos.y];
-    this->field[pos.x][pos.y] = new AliveCell(
+    this->field[pos.x][pos.y] = new Cell(
             this->config->cellConfig, this->game,
             sf::Vector2u(pos.y * this->config->cellConfig->size, pos.x * this->config->cellConfig->size)
     );

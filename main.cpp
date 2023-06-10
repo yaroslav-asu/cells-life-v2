@@ -3,7 +3,7 @@
 #include "game/Game.h"
 
 int main() {
-    srand (time(NULL));
+    srand(time(nullptr));
     game::Game game(sf::Vector2i(500, 500));
     game.run();
     return 0;

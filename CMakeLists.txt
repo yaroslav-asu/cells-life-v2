@@ -28,7 +28,6 @@ add_executable(
         game/cell/Cell.cpp internal/renderable/Renderable.cpp
         game/config/cell/CellConfig.cpp
         game/config/field/FieldConfig.cpp
-        game/cell/alive/AliveCell.cpp
         game/field/neighbors/NeighborsField.cpp
 )
 
