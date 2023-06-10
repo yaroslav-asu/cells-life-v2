@@ -5,7 +5,7 @@ sf::Color idleColor(120, 120, 120);
 sf::Color hoverColor(150, 150, 150);
 sf::Color pressedColor(180, 180, 180);
 
-Button::Button(int x, int y, sf::Vector2f size, std::string text) {
+Button::Button(int x, int y, sf::Vector2f size, std::string &text) {
     this->width = size.x;
     this->height = size.y;
     this->_text = text;

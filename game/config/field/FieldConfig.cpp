@@ -6,8 +6,8 @@ FieldConfig::FieldConfig() : FieldConfig(sf::Vector2u(100, 100), CellConfig().si
 
 FieldConfig::FieldConfig(sf::Vector2u pixelSize, unsigned int cellSize) {
     this->size = pixelSize;
-    this->rowCount = (unsigned int) pixelSize.y / cellSize;
-    this->columnCount = (unsigned int) pixelSize.x / cellSize;
+    this->rowCount = static_cast<unsigned int>(pixelSize.y / cellSize);
+    this->columnCount = static_cast<unsigned int>(pixelSize.x / cellSize);
     this->backgroundColor = sf::Color(150, 150, 150);
 }
 

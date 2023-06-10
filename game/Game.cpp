@@ -11,7 +11,7 @@ namespace game {
         spdlog::info("Game init");
         sf::Vector2i windowSize(size.x, size.y);
         this->window = new sf::RenderWindow(sf::VideoMode(windowSize.x, windowSize.y), "");
-        auto *cellConfig = new CellConfig(10);
+        auto cellConfig = new CellConfig(10);
         auto *fieldConfig = new FieldConfig(sf::Vector2u(size.x, size.y), cellConfig->size);
         auto *config = new GameConfig(cellConfig, fieldConfig);
         updateDelay = 300;

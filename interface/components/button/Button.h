@@ -13,6 +13,7 @@ enum {
 class Button {
 private:
     void (game::Game::*callback)();
+
     std::string _text;
     game::Game *game;
 public:
@@ -22,7 +23,7 @@ public:
     float width, height;
     unsigned short state;
 
-    Button(int, int, sf::Vector2f, std::string);
+    Button(int, int, sf::Vector2f, std::string &title);
 
     Button(int x, int y, sf::Vector2f size, std::string text, game::Game *game, void (game::Game::*callback)());
 
